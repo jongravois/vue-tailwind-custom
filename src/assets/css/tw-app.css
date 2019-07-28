@@ -103,22 +103,22 @@
     @apply .font-semibold .py-2 .px-4 .border .border-grey-200 .rounded .shadow;
 }
 .tw-button.is-primary {
-    @apply .bg-blue-500;
+    @apply bg-blue-500 text-white;
 }
 .tw-button.is-dark {
-    @apply .bg-eagles-500;
+    @apply bg-eagles-500 text-white;
 }
 .tw-button.is-info {
-    @apply .bg-grey-300 .text-grey-800;
+    @apply bg-grey-300 text-grey-800;
 }
 .tw-button.is-success {
-    @apply .bg-nephritis-500 .text-white;
+    @apply bg-nephritis-500 text-white;
 }
 .tw-button.is-warning {
-    @apply .bg-saints-500;
+    @apply bg-saints-500;
 }
 .tw-button.is-danger {
-    @apply .bg-alizarin-500;
+    @apply bg-alizarin-500;
 }
 .tw-input, .tw-textarea, .tw-select, .vdatetime {
     @apply .shadow .appearance-none .border .rounded .w-90 .py-2 .px-3 .text-grey-700 .bg-white .leading-tight;
@@ -137,6 +137,10 @@
 }
 .tw_table_cell {
     @apply .p-2 .border;
+}
+
+.tw-error-block {
+    @apply .bg-red-200 shadow mb-8 px-2
 }
 
 .active--tab {

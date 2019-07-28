@@ -1,10 +1,21 @@
 <template>
   <div id="app">
-    <div class="flex justify-center">
-      <img src="./assets/logo.png" alt="logo">
-    </div>
+    <component :is="layout"></component>
     <router-view/>
   </div>
 </template>
 
+<script>
+  const default_layout = "default";
+
+  export default {
+    computed: {
+      layout() {
+        return (this.$route.meta.layout || default_layout) + '-layout';
+      }
+    }
+  }
+</script>
+
 <style lang="scss"></style>
+

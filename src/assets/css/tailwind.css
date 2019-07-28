@@ -3,7 +3,7 @@
 @tailwind components;
 
 /*EXTEND TAILWIND HERE*/
-@import url('./tw-app.css');
+@import url('tw-app.css');
 /*EXTEND TAILWIND HERE*/
 
 @tailwind utilities;
