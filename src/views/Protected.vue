@@ -4,6 +4,11 @@
         <div class="flex justify-center" v-if="currentUser">
             <h1 class="text-blue text-4xl">PROTECTED</h1>
             {{currentUser}}
+            <br>
+            <font-awesome-icon
+                    icon="satellite-dish"
+                    class="fa-8x cursor-pointer text-red-500"
+                    v-tooltip.top-center="'Test'" />
         </div>
 
         <div class="flex justify-center">

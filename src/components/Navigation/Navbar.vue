@@ -34,7 +34,9 @@
             ])
         },
         methods: {},
-        mounted() {}
+        mounted() {
+            this.$toastr('success', 'i am a toastr success', 'hello');
+        }
     };
 </script>
 
