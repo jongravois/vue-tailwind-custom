@@ -14,7 +14,10 @@ const router = new Router({
     {
       name: 'home',
       path: '/',
-      meta: { auth: true },
+      meta: {
+        auth: true,
+        title: 'Universal Asset Management'
+      },
       component: Home
     },
     {
@@ -22,7 +25,8 @@ const router = new Router({
       path: '/signup',
       meta: {
         layout: 'bare',
-        guest: true
+        guest: true,
+        title: 'Universal Asset Management'
       },
       component: SignUp
     },
@@ -31,14 +35,18 @@ const router = new Router({
       path: '/signin',
       meta: {
         layout: 'bare',
-        guest: true
+        guest: true,
+        title: 'Universal Asset Management'
       },
       component: SignIn
     },
     {
       name: 'protected',
       path: '/protected',
-      meta: { auth: true },
+      meta: {
+        auth: true,
+        title: 'Protected Route'
+      },
       component: Protected
     }
   ]
@@ -61,6 +69,9 @@ router.beforeEach((to, from, next) => {
   } // end if
 
   next();
+});
+router.afterEach(route => {
+  document.title = route.meta.title;
 });
 
 export default router;

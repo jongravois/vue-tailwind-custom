@@ -2,6 +2,10 @@ import * as firebase from 'firebase/app';
 import 'firebase/app';
 import 'firebase/auth';
 
+try {
+  window.$ = window.jQuery = require('jquery');
+} catch (e) {}
+
 import Vue from 'vue';
 import App from './App.vue';
 import VueFirestore from 'vue-firestore';
@@ -10,6 +14,7 @@ import { store } from './Vuex/store';
 
 import AccountingJS from 'accounting-js';
 import axios from 'axios';
+import Holidays from './Services/Holidays';
 import LoDash from 'lodash';
 import Moment from 'moment-business-days';
 import MomentTZ from 'moment-timezone';
@@ -20,7 +25,9 @@ import VueImgFallback from 'v-img-fallback';
 import Vuelidate from 'vuelidate';
 import ResetInput from 'v-reset-input';
 import VueClip from 'vue-clip';
+import TableComponent from 'vue-table-component';
 import VueToastr from '@deveodk/vue-toastr';
+import wysiwyg from "vue-wysiwyg";
 
 import '@deveodk/vue-toastr/dist/@deveodk/vue-toastr.css';
 import './assets/css/tooltip.css';
@@ -34,6 +41,11 @@ window.moment_timezone = MomentTZ;
 
 Vue.config.productionTip = false;
 
+moment.locale('us', {
+  holidays: Holidays,
+  holidayFormat: 'YYYY-MM-DD'
+});
+
 Vue.use(VueFirestore);
 Vue.use(VueImgFallback, {
   loading: '/images/loading.svg',
@@ -45,12 +57,14 @@ Vue.use(ResetInput);
 Vue.use(Vuelidate);
 Vue.use(VueClip);
 Vue.use(VueMoment);
+Vue.use(TableComponent);
 Vue.use(VueToastr, {
   defaultPosition: 'toast-top-right',
   defaultType: 'success',
   defaultTimeout: 2000
 });
 Vue.use(VTooltip);
+Vue.use(wysiwyg, {});
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import FontAwesomeIcon from './fa.js';
