@@ -15,7 +15,6 @@ const router = new Router({
       name: 'home',
       path: '/',
       meta: {
-        auth: true,
         title: 'Universal Asset Management'
       },
       component: Home
@@ -25,7 +24,6 @@ const router = new Router({
       path: '/signup',
       meta: {
         layout: 'bare',
-        guest: true,
         title: 'Universal Asset Management'
       },
       component: SignUp
@@ -35,7 +33,6 @@ const router = new Router({
       path: '/signin',
       meta: {
         layout: 'bare',
-        guest: true,
         title: 'Universal Asset Management'
       },
       component: SignIn
@@ -59,12 +56,6 @@ router.beforeEach((to, from, next) => {
       query: {
         redirect: to.fullPath
       }
-    });
-  } // end if
-
-  if(store.getters.loggedIn && to.meta.guest) {
-    next({
-      name: 'home'
     });
   } // end if
 

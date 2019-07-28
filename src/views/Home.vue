@@ -26,8 +26,6 @@
 <script>
 // @ is an alias to /src
 import { mapGetters } from 'vuex';
-import * as firebase from 'firebase/app';
-import 'firebase/auth';
 
 export default {
   name: 'Home',
@@ -45,10 +43,10 @@ export default {
   },
   methods: {
     logout() {
-      firebase.auth().signOut()
-              .then(() => {
-                this.$router.replace('/');
-              });
+      auth.signOut()
+        .then(() => {
+          this.$router.replace('/');
+        });
     }
   },
   mounted() {}

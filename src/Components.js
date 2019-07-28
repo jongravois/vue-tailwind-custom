@@ -4,7 +4,7 @@ import LoaderBlock from "./components/Globals/LoaderBlock";
 import Default from './Layouts/Default';
 import Bare from './Layouts/Bare';
 
-import FontAwesomeIcon from './fa.js';
+import FontAwesomeIcon from './FA.js';
 import NavBar from './components/Navigation/Navbar';
 
 Vue.component('loader-block', LoaderBlock);

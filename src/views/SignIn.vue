@@ -53,7 +53,6 @@
 
 <script type="text/babel">
     import * as firebase from 'firebase/app';
-    import 'firebase/auth';
     import { mapGetters } from 'vuex';
     import { required, email } from 'vuelidate/lib/validators';
 
@@ -92,7 +91,7 @@
                     return;
                 } // end if
 
-                firebase.auth().signInWithEmailAndPassword(this.email, this.password)
+                auth.signInWithEmailAndPassword(this.email, this.password)
                     .then(() => {
                         this.$router.replace(this.$route.query.redirect || '/protected');
                     })

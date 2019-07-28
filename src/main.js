@@ -15,7 +15,7 @@ import { store } from './Vuex/store';
 import AccountingJS from 'accounting-js';
 import axios from 'axios';
 import Holidays from './Services/Holidays';
-import LoDash from 'lodash';
+import Lodash from 'lodash';
 import Moment from 'moment-business-days';
 import MomentTZ from 'moment-timezone';
 import VueMoment from 'vue-moment';
@@ -33,7 +33,9 @@ import '@deveodk/vue-toastr/dist/@deveodk/vue-toastr.css';
 import './assets/css/tooltip.css';
 import './assets/css/tailwind.css';
 
-window._ = LoDash;
+window._ = Lodash;
+window.firebase = firebase;
+window.auth = firebase.auth();
 window.axios = axios;
 window.Accounting = AccountingJS;
 window.moment = Moment;
@@ -67,7 +69,7 @@ Vue.use(VTooltip);
 Vue.use(wysiwyg, {});
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import FontAwesomeIcon from './fa.js';
+import FontAwesomeIcon from './FA.js';
 
 import './Components';
 import './Filters';
@@ -77,10 +79,10 @@ import 'firebase/auth';
 firebase.auth().onAuthStateChanged(user => {
   //console.log('FIREBASE SERVICE', user);
   store.dispatch('authenticated', user);
-
-  new Vue({
-    router,
-    store,
-    render: h => h(App)
-  }).$mount('#app');
 });
+
+new Vue({
+  router,
+  store,
+  render: h => h(App)
+}).$mount('#app');
