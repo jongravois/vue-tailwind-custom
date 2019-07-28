@@ -35,7 +35,7 @@
         },
         methods: {},
         mounted() {
-            this.$toastr('success', 'i am a toastr success', 'hello');
+            //this.$toastr('success', 'i am a toastr success', 'hello');
         }
     };
 </script>
